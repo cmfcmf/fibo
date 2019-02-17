@@ -175,6 +175,8 @@ void setup()
   pinMode(SET_PIN, INPUT_PULLUP);
   
   pinMode(13, OUTPUT);
+
+  Serial.println("Fibonacci Clock - Mathecamp 2019");
   
   for(int i=0;i<4;i++)
   {
