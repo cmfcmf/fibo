@@ -27,11 +27,11 @@
 #include "RTClib.h"
 #include <Adafruit_NeoPixel.h>
 
-#define STRIP_PIN 8
-#define HOUR_PIN 3
-#define MINUTE_PIN 4
+#define STRIP_PIN A0
+#define HOUR_PIN 4
+#define MINUTE_PIN 3
 #define BTN_PIN 5
-#define SET_PIN 6
+#define SET_PIN 2
 #define DEBOUNCE_DELAY 10
 #define MAX_BUTTONS_INPUT 20
 #define MAX_MODES 3
