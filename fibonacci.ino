@@ -169,10 +169,10 @@ void setup()
   // Make the random() function return unpredictable results
   randomSeed(rtc.now().unixtime());
   
-  pinMode(HOUR_PIN, INPUT);
-  pinMode(MINUTE_PIN, INPUT);
-  pinMode(BTN_PIN, INPUT);
-  pinMode(SET_PIN, INPUT);
+  pinMode(HOUR_PIN, INPUT_PULLUP);
+  pinMode(MINUTE_PIN, INPUT_PULLUP);
+  pinMode(BTN_PIN, INPUT_PULLUP);
+  pinMode(SET_PIN, INPUT_PULLUP);
   
   pinMode(13, OUTPUT);
   
@@ -293,7 +293,7 @@ int debounce(int pin)
   if( val == lastButtonValue[pin] )
   {
     currentButtonValue[pin] = val;
-    return val;
+    return !val;
   }
     
   delay(DEBOUNCE_DELAY);
@@ -302,11 +302,11 @@ int debounce(int pin)
   if( val != lastButtonValue[pin] )
   {
     currentButtonValue[pin] = val;
-    return val;
+    return !val;
   }
   
   currentButtonValue[pin] = lastButtonValue[pin];
-  return lastButtonValue[pin];
+  return !lastButtonValue[pin];
 }
 
 boolean hasChanged(int pin)
